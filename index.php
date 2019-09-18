@@ -18,13 +18,30 @@ $error="Enter username and password to login";
  
 <html>
 <head>
+<script>
+			function validateForm() {
+			var name = document.forms["login"]["username"].value;
+			if (name == "") {
+			alert("Name must be filled out"); 
+			return false;
+			}
+			
+			
+			var pass = document.forms["login"]["password"].value;
+			if (pass == "") {
+			alert("Password must be filled out"); 
+			return false;
+			}
+			
+		}
+		</script>
 <title>Main Page</title>
 </head>
 <body>
 <Center>
 <?php if(isset($error)){ echo $error; } ?>      
  
-<form method="POST" name="login" action='#'>
+<form method="POST" name="login" action='#' onsubmit='return(validateForm())'>
  
 User Name: <input name="username" type="text" />
 <br/>
